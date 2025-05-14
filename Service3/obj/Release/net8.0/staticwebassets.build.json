@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "s7mMcuFyt9mqxbXX/yFqEgsrG6bgy4ilfblhLn2rUQU=",
+  "Source": "Service3",
+  "BasePath": "_content/Service3",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
