@@ -1,0 +1,203 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Service1",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/User/Register": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Email",
+                  "Password",
+                  "Phone_Number",
+                  "User_Name"
+                ],
+                "type": "object",
+                "properties": {
+                  "User_Name": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Password": {
+                    "type": "string"
+                  },
+                  "Phone_Number": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "User_Name": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "Phone_Number": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/User/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Email",
+                  "Password"
+                ],
+                "type": "object",
+                "properties": {
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Password": {
+                    "type": "string",
+                    "format": "password"
+                  }
+                }
+              },
+              "encoding": {
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/User/{id}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/balance"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/balance"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/balance"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/User/{phone}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "balance": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
